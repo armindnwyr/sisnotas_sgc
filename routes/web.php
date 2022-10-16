@@ -50,3 +50,4 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::resource('docentes', DocenteController::class);
+

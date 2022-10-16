@@ -14,7 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        //
+        $docentes = Docente::all();
+        dd($docentes);
     }
 
     /**
