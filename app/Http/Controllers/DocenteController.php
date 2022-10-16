@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Docente;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class DocenteController extends Controller
@@ -14,8 +15,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes = Docente::all();
-        return view('doncente.index');
+        $docente = Docente::all();
+        return view('doncente.index', compact($docente));
     }
 
     /**
@@ -25,7 +26,7 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        
+        return view('docentes.create');
     }
 
     /**
@@ -36,7 +37,35 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'dni'=>'required',
+            'nombre'=>'required',
+            'paterno'=>'required',
+            'materno'=>'required',
+            'genero'=>'required',
+            'fecha'=>'required',
+            'correo'=>'required',
+            'celular'=>'required',
+            'especialidad'=>'required',
+            'nivel'=>'required',
+        ]);
+
+        $docente = new Docente();
+
+        $docente->dni = $request->dni;
+        $docente->nombre = $request->nombre;
+        $docente->paterno = $request->paterno;
+        $docente->materno = $request->materno;
+        $docente->genero = $request->genero;
+        $docente->fecha = $request->fecha;
+        $docente->correo = $request->correo;
+        $docente->celular = $request->celular;
+        $docente->especialidad = $request->especialidad;
+        $docente->nivel = $request->nivel;
+
+        $docente->save();
+        
+        return redirect()->route('docente.index');
     }
 
     /**
@@ -47,7 +76,7 @@ class DocenteController extends Controller
      */
     public function show(Docente $docente)
     {
-        //
+        return view('docentes.index', compact($docente));
     }
 
     /**
@@ -58,7 +87,7 @@ class DocenteController extends Controller
      */
     public function edit(Docente $docente)
     {
-        //
+        return view('docentes.edit');
     }
 
     /**
@@ -70,7 +99,32 @@ class DocenteController extends Controller
      */
     public function update(Request $request, Docente $docente)
     {
-        //
+        $request->validate([
+            'dni'=>'required',
+            'nombre'=>'required',
+            'paterno'=>'required',
+            'materno'=>'required',
+            'genero'=>'required',
+            'fecha'=>'required',
+            'correo'=>'required',
+            'celular'=>'required',
+            'especialidad'=>'required',
+            'nivel'=>'required',
+        ]);
+
+        $docente->dni = $request->dni;
+        $docente->nombre = $request->nombre;
+        $docente->paterno = $request->paterno;
+        $docente->materno = $request->materno;
+        $docente->genero = $request->genero;
+        $docente->fecha = $request->fecha;
+        $docente->correo = $request->correo;
+        $docente->celular = $request->celular;
+        $docente->especialidad = $request->especialidad;
+        $docente->nivel = $request->nivel;
+
+        $docente->save();
+        return redirect()->route('docente.index');
     }
 
     /**
@@ -81,6 +135,8 @@ class DocenteController extends Controller
      */
     public function destroy(Docente $docente)
     {
-        //
+        $docente->delete();
+
+        return redirect()->route('docente.index');
     }
 }
