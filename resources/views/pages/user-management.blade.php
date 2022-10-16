@@ -1,23 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.app', ['class' => 'g-sidenav-show bg-gray-100'])
 
 @section('content')
-    @include('layouts.navbars.auth.topnav', ['title' => 'User Management'])
-    <div class="row mt-4 mx-4">
-        <div class="col-12">
-            <div class="card mb-4">
-                <div class="card-body px-0 pt-0 pb-2">
-                    <div class="row">
-                        <div class="card" style="width: 18rem; text-align: center">
-                            <div class="card-body">
-                              <i class="fa fa-book fa-5x"></i>
-                              <h5 class="card-title">Aritmetica</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                          </div>
-                    </div>
-                </div>
+    @include('layouts.navbars.auth.topnav', ['title' => 'Cursos Asignados'])
+    <div class="col-12 mx-4">
+        <div class="card" style="width: 18rem; text-align: center">
+            <div class="card-body">
+              <i class="fa fa-book fa-5x"></i>
+              <h5 class="card-title mt-2">Aritmetica - 3ro A</h5>
+              <p class="card-text">Fecha Limite: 27/08/2022 23:59</p>
+              <a href="#" class="btn btn-primary">Calificar</a>
             </div>
-        </div>
+          </div>
+    </div>
     </div>
 @endsection
