@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('correo');
             $table->integer('celular')->length(9);
             $table->string('especialidad');
+            $table->string('nivel');
             $table->timestamps();
         });
     }
