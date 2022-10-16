@@ -16,7 +16,7 @@ class DocenteController extends Controller
     public function index()
     {
         $docente = Docente::all();
-        return view('doncente.index', compact($docente));
+        return view('doncentes.index', compact($docente));
     }
 
     /**
@@ -64,8 +64,8 @@ class DocenteController extends Controller
         $docente->nivel = $request->nivel;
 
         $docente->save();
-        
-        return redirect()->route('docente.index');
+
+        return redirect()->route('docentes.index');
     }
 
     /**
@@ -124,7 +124,7 @@ class DocenteController extends Controller
         $docente->nivel = $request->nivel;
 
         $docente->save();
-        return redirect()->route('docente.index');
+        return redirect()->route('docentes.index');
     }
 
     /**
@@ -137,6 +137,6 @@ class DocenteController extends Controller
     {
         $docente->delete();
 
-        return redirect()->route('docente.index');
+        return redirect()->route('docentes.index');
     }
 }
