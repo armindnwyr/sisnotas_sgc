@@ -16,7 +16,7 @@ class DocenteController extends Controller
     public function index()
     {
         $docente = Docente::all();
-        return view('doncentes.index', compact($docente));
+        return view('docentes.index', compact('docente'));
     }
 
     /**
@@ -76,7 +76,7 @@ class DocenteController extends Controller
      */
     public function show(Docente $docente)
     {
-        return view('docentes.index', compact($docente));
+        return view('docentes.index', compact('docente'));
     }
 
     /**
