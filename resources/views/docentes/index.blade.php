@@ -5,6 +5,7 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
+                <a href="{{ route('page', ['page' => 'docente/create']) }}" class="btn btn-dark position-relative">Registrar Docente</a>
                 <div class="card mb-4">
                     <div class="card-header pb-0">
                         <h6>Lista de Docentes</h6>
@@ -39,11 +40,14 @@
                                                 <th
                                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Telefono</th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                </th>
+                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                </th>
                                             </tr>
                                         </thead>
                                         @foreach ($docente as $docentes)
-                                        <tbody>
-                                                
+                                        <tbody>  
                                             <tr>
                                                 <td>
                                                     <div class="d-flex flex-column justify-content-center">
@@ -75,13 +79,13 @@
                                                     <p class="text-xs font-weight-bold mb-0">{{$docentes->celular}}</p>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <a href="javascript:;" class="text-secondary font-weight-bold text-xs"
-                                                        data-toggle="tooltip" data-original-title="Edit user">
-                                                        Edit
-                                                    </a>
+                                                    <a href="" class="btn btn-primary text-xxs">
+                                                        Editar</a>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <form action="{{route('docente.destroy', $docentes)}}" method="post"> @csrf @method('delete') <button type="submit" class="btn btn-danger text-xxs">Eliminar</button></form>
                                                 </td>
                                             </tr>
-                                            
                                         </tbody>
                                         @endforeach
                                     </table>
